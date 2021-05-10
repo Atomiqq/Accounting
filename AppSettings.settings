@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Accounting" GeneratedClassName="AppSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ServName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DESKTOP-APV9I9D\SERV</Value>
+    </Setting>
+    <Setting Name="Login" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Николай А.</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
