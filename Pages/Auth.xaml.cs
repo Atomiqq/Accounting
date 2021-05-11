@@ -21,10 +21,7 @@ namespace Accounting.Pages
     /// </summary>
     public partial class Auth : Page
     {
-        public Auth()
-        {
-            InitializeComponent();
-        }
+        public Auth() => InitializeComponent();
 
         private void enter_Click(object sender, RoutedEventArgs e)
         {
@@ -56,10 +53,7 @@ namespace Accounting.Pages
             }
         }
 
-        private void reg_Click(object sender, RoutedEventArgs e)
-        {
-            Classes.Nav.Navigation.Navigate(new Uri(@"Pages\Reg.xaml", UriKind.RelativeOrAbsolute));
-        }
+        private void reg_Click(object sender, RoutedEventArgs e) => Classes.Nav.Navigation.Navigate(new Uri(@"Pages\Reg.xaml", UriKind.RelativeOrAbsolute));
 
         private void Page_KeyDown(object sender, KeyEventArgs e)
         {

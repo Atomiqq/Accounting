@@ -9,5 +9,61 @@
       Title="Main">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu VerticalAlignment="Top" IsMainMenu="True" Background="#FF4F4FB0">
+            <MenuItem Header="Главная" Template="{DynamicResource MainMenuItem}">
+                <MenuItem x:Name="updatePw" Header="Изменить пароль" Click="updatePw_Click" Template="{DynamicResource SubMenuItem}"/>
+                <MenuItem x:Name="back" Header="Выйти из профиля" Click="back_Click" Template="{DynamicResource SubMenuItem}"/>
+                <MenuItem x:Name="quit" Header="Выйти из программы" Click="quit_Click" Template="{DynamicResource SubMenuItem}"/>
+            </MenuItem>
+            <MenuItem Header="Оборудование" Template="{DynamicResource MainMenuItem}">
+                <MenuItem Header="Вывести на экран" Template="{DynamicResource MidMenuItem}">
+                    <MenuItem x:Name="displayComputers" Header="Компьютеры" Click="displayComputers_Click" Template="{DynamicResource SubMenuItem}"/>
+                    <MenuItem x:Name="displayPeriphery" Header="Орг.технику" Click="displayPeriphery_Click" Template="{DynamicResource SubMenuItem}"/>
+                </MenuItem>
+                <MenuItem Header="Добавить" Template="{DynamicResource MidMenuItem}">
+                    <MenuItem x:Name="addComputer" Header="Компьютер" Click="addComputer_Click" Template="{DynamicResource SubMenuItem}"/>
+                    <MenuItem x:Name="addPeriphery" Header="Орг.технику" Click="addPeriphery_Click" Template="{DynamicResource SubMenuItem}"/>
+                </MenuItem>
+                <MenuItem Header="Изменить" Template="{DynamicResource MidMenuItem}">
+                    
+                </MenuItem>
+                <MenuItem Header="Удалить" Template="{DynamicResource MidMenuItem}">
+                    
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Программное обеспечение" Template="{DynamicResource MainMenuItem}">
+                <MenuItem Header="Вывести на экран" Template="{DynamicResource MidMenuItem}">
+                    
+                </MenuItem>
+                <MenuItem Header="Добавить" Template="{DynamicResource MidMenuItem}">
+                    
+                </MenuItem>
+                <MenuItem Header="Изменить" Template="{DynamicResource MidMenuItem}">
+                    
+                </MenuItem>
+                <MenuItem Header="Удалить" Template="{DynamicResource MidMenuItem}">
+                    
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Действия" Template="{DynamicResource MainMenuItem}">
+                <MenuItem Header="Вывести на экран" Template="{DynamicResource MidMenuItem}">
+                    
+                </MenuItem>
+                <MenuItem Header="Добавить" Template="{DynamicResource MidMenuItem}">
+                    
+                </MenuItem>
+                <MenuItem Header="Изменить" Template="{DynamicResource MidMenuItem}">
+                    
+                </MenuItem>
+                <MenuItem Header="Удалить" Template="{DynamicResource MidMenuItem}">
+                    
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Grid.Row="1" Background="{x:Null}"/>
     </Grid>
 </Page>

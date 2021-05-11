@@ -21,15 +21,13 @@ namespace Accounting.Pages
     /// </summary>
     public partial class Reg : Page
     {
-        public Reg()
-        {
-            InitializeComponent();
-        }
+        public Reg() => InitializeComponent();
 
         private void reg_Click(object sender, RoutedEventArgs e)
         {
             Classes.Conn.Str = @"Data Source=" + serv.Text + @";Initial Catalog=Accounting;Integrated Security=True";
 
+            if (App.CheckPasswordComplexity(pw.Password) == false) return;
             if (pwRepeat.Password == pw.Password)
             {
                 using (SqlConnection sqlConnection = new SqlConnection(Classes.Conn.Str))
@@ -68,7 +66,7 @@ namespace Accounting.Pages
             else
             {
                 MessageBox.Show("Введенные пароли не совпадают!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;            
+                return;
             }
         }
 
@@ -78,9 +76,6 @@ namespace Accounting.Pages
             if (e.Key == Key.F4) Classes.Nav.Navigation.GoBack();
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            serv.Text = AppSettings.Default.ServName;
-        }
+        private void Page_Loaded(object sender, RoutedEventArgs e) => serv.Text = AppSettings.Default.ServName;
     }
 }
