@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
+﻿using System.Data;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Data.Sql;
+using System.Data.SqlClient;
 
 namespace Accounting
 {
@@ -14,6 +10,11 @@ namespace Accounting
     /// </summary>
     public partial class App : Application
     {
+        /// <summary>
+        /// Метод проверки сложности пароля
+        /// </summary>
+        /// <param name="pw"></param>
+        /// <returns></returns>
         public static bool CheckPasswordComplexity(string pw)
         {
             if (pw.Length < 8)
@@ -47,6 +48,45 @@ namespace Accounting
                 return false;
             }
             return true;
+        }
+        
+        /// <summary>
+        /// Строка подключения
+        /// </summary>
+        public static string Conn { get; set; }
+
+        public static DataTable Select(string query)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(Conn))
+            {
+                try
+                {
+                    sqlConnection.Open();
+
+                    using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
+                    {
+                        sqlCommand.ExecuteNonQuery();
+
+                        using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand))
+                        {
+                            DataTable dataTable = new DataTable();
+
+                            sqlDataAdapter.Fill(dataTable);
+
+                            return dataTable;
+                        }
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return null;
+                }
+                finally
+                {
+                    sqlConnection.Close();
+                }
+            }
         }
     }
 }

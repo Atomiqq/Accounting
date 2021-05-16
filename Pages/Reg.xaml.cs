@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Accounting.Pages
 {
@@ -25,12 +14,12 @@ namespace Accounting.Pages
 
         private void reg_Click(object sender, RoutedEventArgs e)
         {
-            Classes.Conn.Str = @"Data Source=" + serv.Text + @";Initial Catalog=Accounting;Integrated Security=True";
+            App.Conn = @"Data Source=" + serv.Text + @";Initial Catalog=Accounting;Integrated Security=True";
 
             if (App.CheckPasswordComplexity(pw.Password) == false) return;
             if (pwRepeat.Password == pw.Password)
             {
-                using (SqlConnection sqlConnection = new SqlConnection(Classes.Conn.Str))
+                using (SqlConnection sqlConnection = new SqlConnection(App.Conn))
                 {
                     try
                     {
@@ -50,7 +39,7 @@ namespace Accounting.Pages
                         AppSettings.Default.Login = id.Text;
                         AppSettings.Default.Save();
 
-                        Classes.Nav.Navigation.GoBack();
+                        NavigationService.GoBack();
                     }
                     catch (SqlException ex)
                     {
@@ -70,12 +59,19 @@ namespace Accounting.Pages
             }
         }
 
-        private void Page_KeyDown(object sender, KeyEventArgs e)
+        public void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            if (e.Key == Key.F5) Classes.Nav.Navigation.Refresh();
-            if (e.Key == Key.F4) Classes.Nav.Navigation.GoBack();
+            serv.Text = AppSettings.Default.ServName;
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e) => serv.Text = AppSettings.Default.ServName;
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
+
+        private void refresh_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Refresh();
+        }
     }
 }

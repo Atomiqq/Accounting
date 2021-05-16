@@ -7,63 +7,47 @@
       mc:Ignorable="d" 
       d:DesignHeight="419" d:DesignWidth="792"
       Title="Main">
+    <Page.Background>
+        <ImageBrush ImageSource="/Accounting;component/Bg.jpg" Stretch="UniformToFill"/>
+    </Page.Background>
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Menu VerticalAlignment="Top" IsMainMenu="True" Background="#FF4F4FB0">
+        <Menu VerticalAlignment="Top" Background="DarkSlateBlue">
             <MenuItem Header="Главная" Template="{DynamicResource MainMenuItem}">
-                <MenuItem x:Name="updatePw" Header="Изменить пароль" Click="updatePw_Click" Template="{DynamicResource SubMenuItem}"/>
-                <MenuItem x:Name="back" Header="Выйти из профиля" Click="back_Click" Template="{DynamicResource SubMenuItem}"/>
-                <MenuItem x:Name="quit" Header="Выйти из программы" Click="quit_Click" Template="{DynamicResource SubMenuItem}"/>
+                <MenuItem x:Name="updatePw" Header="Изменить пароль" Click="updatePw_Click"/>
+                <Separator Background="SlateBlue" Margin="0,3,0,3"/>
+                <MenuItem x:Name="back" Header="Выйти из профиля" Click="back_Click"/>
+                <MenuItem x:Name="quit" Header="Выйти из программы" Click="quit_Click"/>
             </MenuItem>
             <MenuItem Header="Оборудование" Template="{DynamicResource MainMenuItem}">
-                <MenuItem Header="Вывести на экран" Template="{DynamicResource MidMenuItem}">
-                    <MenuItem x:Name="displayComputers" Header="Компьютеры" Click="displayComputers_Click" Template="{DynamicResource SubMenuItem}"/>
-                    <MenuItem x:Name="displayPeriphery" Header="Орг.технику" Click="displayPeriphery_Click" Template="{DynamicResource SubMenuItem}"/>
+                <MenuItem x:Name="displayComputers" Header="Компьютеры" Click="displayComputers_Click"/>
+                <MenuItem x:Name="displayPeriphery" Header="Орг.техника" Click="displayPeriphery_Click"/>
+                <Separator Background="SlateBlue" Margin="0,3,0,3"/>
+                <MenuItem Header="Комплектующие" Template="{DynamicResource DropdownMenuItem}">
+                    <MenuItem x:Name="displayProcessors" Header="Процессоры" Click="displayProcessors_Click"/>
                 </MenuItem>
-                <MenuItem Header="Добавить" Template="{DynamicResource MidMenuItem}">
-                    <MenuItem x:Name="addComputer" Header="Компьютер" Click="addComputer_Click" Template="{DynamicResource SubMenuItem}"/>
-                    <MenuItem x:Name="addPeriphery" Header="Орг.технику" Click="addPeriphery_Click" Template="{DynamicResource SubMenuItem}"/>
-                </MenuItem>
-                <MenuItem Header="Изменить" Template="{DynamicResource MidMenuItem}">
-                    
-                </MenuItem>
-                <MenuItem Header="Удалить" Template="{DynamicResource MidMenuItem}">
-                    
-                </MenuItem>
-            </MenuItem>
-            <MenuItem Header="Программное обеспечение" Template="{DynamicResource MainMenuItem}">
-                <MenuItem Header="Вывести на экран" Template="{DynamicResource MidMenuItem}">
-                    
-                </MenuItem>
-                <MenuItem Header="Добавить" Template="{DynamicResource MidMenuItem}">
-                    
-                </MenuItem>
-                <MenuItem Header="Изменить" Template="{DynamicResource MidMenuItem}">
-                    
-                </MenuItem>
-                <MenuItem Header="Удалить" Template="{DynamicResource MidMenuItem}">
-                    
+                <Separator Background="SlateBlue" Margin="0,3,0,3"/>
+                <MenuItem x:Name="displayCabinets" Header="Расположение" Click="displayCabinets_Click"/>
+                <Separator Background="SlateBlue" Margin="0,3,0,3"/>
+                <MenuItem x:Name="displayBrands" Header="Марки" Click="displayBrands_Click"/>
+                <MenuItem x:Name="displayModels" Header="Модели" Click="displayModels_Click"/>
+                <Separator Background="SlateBlue" Margin="0,3,0,3"/>
+                <MenuItem Header="Операции">
+                    <MenuItem x:Name="displayComputersActions" Header="С компьютерами" Click="displayComputersActions_Click"/>
+                    <MenuItem x:Name="displayPeripheryActions" Header="С орг.техникой" Click="displayPeripheryActions_Click"/>
+                    <Separator Background="SlateBlue" Margin="0,3,0,3"/>
+                    <MenuItem x:Name="displayActions" Header="Категории" Click="displayActions_Click"/>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Действия" Template="{DynamicResource MainMenuItem}">
-                <MenuItem Header="Вывести на экран" Template="{DynamicResource MidMenuItem}">
-                    
-                </MenuItem>
-                <MenuItem Header="Добавить" Template="{DynamicResource MidMenuItem}">
-                    
-                </MenuItem>
-                <MenuItem Header="Изменить" Template="{DynamicResource MidMenuItem}">
-                    
-                </MenuItem>
-                <MenuItem Header="Удалить" Template="{DynamicResource MidMenuItem}">
-                    
-                </MenuItem>
+            <MenuItem Header="Программное обеспечение"  Template="{DynamicResource MainMenuItem}">
+                <MenuItem Header="Существующее"/>
+                <MenuItem Header="Установленное"/>
             </MenuItem>
         </Menu>
-        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Grid.Row="1" Background="{x:Null}"/>
+        <Frame x:Name="dataFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Page>

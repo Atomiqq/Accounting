@@ -21,34 +21,25 @@ namespace Accounting.Pages
     /// </summary>
     public partial class Main : Page
     {
-        public Main()
-        {
-            InitializeComponent();
-        }
+        public Main() => InitializeComponent();
 
-        private void back_Click(object sender, RoutedEventArgs e) => Classes.Nav.Navigation.GoBack();
+        private void back_Click(object sender, RoutedEventArgs e) => NavigationService.GoBack();
 
         private void quit_Click(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
 
+        private void updatePw_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void displayBrands_Click(object sender, RoutedEventArgs e)
+        {
+            dataFrame.NavigationService.Navigate(new Uri(@"Pages\Brands.xaml", UriKind.RelativeOrAbsolute));
+        }
+
         private void displayComputers_Click(object sender, RoutedEventArgs e)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(Classes.Conn.Str))
-            {
-                try
-                {
-                    sqlConnection.Open();
 
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-                finally
-                {
-                    sqlConnection.Close();
-                }
-            }
         }
 
         private void displayPeriphery_Click(object sender, RoutedEventArgs e)
@@ -56,17 +47,32 @@ namespace Accounting.Pages
 
         }
 
-        private void addComputer_Click(object sender, RoutedEventArgs e)
+        private void displayProcessors_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void addPeriphery_Click(object sender, RoutedEventArgs e)
+        private void displayCabinets_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void updatePw_Click(object sender, RoutedEventArgs e)
+        private void displayModels_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void displayComputersActions_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void displayPeripheryActions_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void displayActions_Click(object sender, RoutedEventArgs e)
         {
 
         }

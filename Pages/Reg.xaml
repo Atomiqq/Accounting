@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Accounting.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="419" d:DesignWidth="792"
-      Title="Reg" KeyDown="Page_KeyDown" Loaded="Page_Loaded">
+      Title="Reg" Loaded="Page_Loaded">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -16,20 +16,23 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="190"/>
+            <RowDefinition Height="170"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Rectangle Grid.Row="1" Grid.Column="1" Opacity="0.8" RadiusX="25" RadiusY="25"/>
-        <Rectangle Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="10,10,10,0" Height="33" RadiusX="12.5" RadiusY="12.5"/>
-        <Label Content="Сервер:" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
-        <TextBox x:Name="serv" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,15,20,0" Width="195"/>
-        <Rectangle Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="10,0" Height="83" RadiusX="12.5" RadiusY="12.5"/>
-        <Label Content="Логин:" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,50"/>
-        <TextBox x:Name="id" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,50" Width="195"/>
-        <Label Content="Пароль:" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
-        <PasswordBox x:Name="pw" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" Width="195"/>
-        <Label Content="Повтор:" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,50,0,0"/>
-        <PasswordBox x:Name="pwRepeat" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,50,20,0" Width="195"/>
-        <Button x:Name="reg" Content="Зарегистрироваться" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="10,0,10,10" Height="33" Click="reg_Click"/>
+        <Rectangle Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="75" RadiusX="20" RadiusY="20" Margin="10,0,0,0" Opacity="0.5"/>
+        <Button x:Name="refresh" Content="↻" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="2" Width="30" Click="refresh_Click" Margin="15,0,0,35" Height="30" Grid.Row="1"/>
+        <Button x:Name="back" Content="➦" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="2" Width="30" Click="back_Click" Margin="15,35,0,0" Height="30" Grid.Row="1"/>
+        <Rectangle Grid.Row="1" Grid.Column="1" Opacity="0.5" RadiusX="25" RadiusY="25"/>
+        <Rectangle Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="5,5,5,0" Height="33" RadiusX="15" RadiusY="15"/>
+        <Label Content="Сервер:" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0"/>
+        <TextBox x:Name="serv" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,15,0" Width="200"/>
+        <Rectangle Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="5,0" Height="83" RadiusX="15" RadiusY="15"/>
+        <Label Content="Логин:" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,50"/>
+        <TextBox x:Name="id" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,50" Width="200"/>
+        <Label Content="Пароль:" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
+        <PasswordBox x:Name="pw" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" Width="200"/>
+        <Label Content="Повтор:" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,50,0,0"/>
+        <PasswordBox x:Name="pwRepeat" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,50,15,0" Width="200"/>
+        <Button x:Name="reg" Content="Зарегистрироваться" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="5,0,5,5" Height="33" Click="reg_Click"/>
     </Grid>
 </Page>
